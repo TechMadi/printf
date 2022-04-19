@@ -35,24 +35,6 @@ Prints a string. Non printable characters are printed as "\x" followed by their 
 .B d, i
 The int argument is converted to signed decimal notation.
 .TP
-.B x, X
-The unsigned int argument is converted to unsigned lowercase hexadecimal notation(x), or unsigned uppercase hexadecimal notation(X).
-.TP
-.B u
-The unsigned int argument is converted to unsigned decimal notation
-.TP
-.B o, b
-The unsigned int argument is converted to unsigned octal notation(o) or binary notation(b).
-.TP
-.B p
-Address is printed in hexadecimal.
-.TP
-.B r
-Prints a string in reverse.
-.TP
-.B R
-Prints a string converted to rot13
-.TP
 .B %
 A '%' is written but no argument is converted. The complete version specification is '%%'
 .SH EXAMPLE
