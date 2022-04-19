@@ -66,4 +66,4 @@ _printf("%s, %s %d, %d\\n", weekday, month, day, year);
 .SH BUGS
 No known bugs.
 .SH AUTHOR
-Winnie Mandela , 
+Winnie Mandela , William Mwangi
