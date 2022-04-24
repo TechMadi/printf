@@ -1,36 +1,37 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * print_c - prints a char to stdout
- * @c: char to print
+ * print_c - Prints a character(s)
+ * @arg: argument list
  *
- * Return: 1(Success)
+ * Return: 1
  */
-int print_c(va_list c)
-{
-	char ch = (char)va_arg(c, int);
 
-	_putchar(ch);
+int print_c(va_list arg)
+{
+	char c;
+
+	c = va_arg(arg, int);
+
+	_putchar(c);
 	return (1);
 }
 
 /**
- * print_s - prints a string to stdout
- * @s: string to print
+ * print_s - Prints a string
+ * @ss: String to print
  *
- * Return: number of chars printed
+ * Return: Number of characters printed
  */
-int print_s(va_list s)
-{
-	int count;
-	char *str = va_arg(s, char *);
 
-	if (str == NULL)
-		str = "(null)";
-	for (count = 0; str[count]; count++)
+int print_s(char *ss)
+{
+	int i = 0;
+
+	while(ss[i] != '\0')
 	{
-		_putchar(str[count]);
+		_putchar(ss[i]);
+		i++;
 	}
-	return (count);
+	return (i);
 }

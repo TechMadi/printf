@@ -1,79 +1,77 @@
 #include "main.h"
 
 /**
- * print_i -  console.log (integer)
- * @i: integer to print
+ * print_d - Prints integers
  *
- * Return: count of chars and digits printed
+ * Return:
  */
-int print_i(va_list i)
-{
-	int a[10];
-	int j, m, n, sum, count;
 
-	n = va_arg(i, int);
-	count = 0;
-	m = 1000000000;
-	a[0] = n / m;
-	for (j = 1; j < 10; j++)
-	{
-		m /= 10;
-		a[j] = (n / m) % 10;
-	}
+int print_d(int n)
+{
+	int rem, q, n2 = 0;
+	int sign = 1;
+	int count = 0;
+
 	if (n < 0)
+	{
+		n = (-1 * n);
+		sign = -1;
+	}
+
+	/* Reverses the number eg 234 -> 432*/
+
+	while (n > 0)
+	{
+		rem = n % 10;
+		q = n / 10;
+		n2 = (n2 * 10) + rem;
+		n = q;
+	}
+
+	n = n2;
+
+	if (sign == -1)
 	{
 		_putchar('-');
 		count++;
-		for (j = 0; j < 10; j++)
-			a[j] *= -1;
 	}
-	for (j = 0, sum = 0; j < 10; j++)
+        /*Prints from last digit to first digit*/
+
+	while(n > 0)
 	{
-		sum += a[j];
-		if (sum != 0 || j == 9)
-		{
-			_putchar('0' + a[j]);
-			count++;
-		}
+		rem = n % 10;
+		_putchar('0' + rem);
+		count++;
+		n = n / 10;
 	}
 	return (count);
 }
 
 /**
- * print_d - consoele.log a decimal
- * @d: decimal to print
+ * print_b - Converts and prints integer into binary
+ * @n: Integer to convert
  *
- * Return: count  of chars and digits printed
+ * Return: Count of binaries
  */
-int print_d(va_list d)
-{
-	int a[10];
-	int j, m, n, sum, count;
 
-	n = va_arg(d, int);
-	count = 0;
-	m = 1000000000;
-	a[0] = n / m;
-	for (j = 1; j < 10; j++)
+int print_b(int n)
+{
+	int array[10];
+	int i = 0, j= 0;
+	int rem;
+
+	while (n != 0)
 	{
-		m /= 10;
-		a[j] = (n / m) % 10;
+		rem = n % 2;
+		n = n / 2;
+		array[1] = rem;
+		i++;
+		j++;
 	}
-	if (n < 0)
+	while (i >= 0)
 	{
-		_putchar('-');
-		count++;
-		for (j = 0; j < 10; j++)
-			a[j] *= -1;
+		_putchar('0' + array[i]);
+		i--;
 	}
-	for (j = 0, sum = 0; j < 10; j++)
-	{
-		sum += a[j];
-		if (sum != 0 || j == 9)
-		{
-			_putchar('0' + a[j]);
-			count++;
-		}
-	}
-	return (count);
+	return (j);
 }
